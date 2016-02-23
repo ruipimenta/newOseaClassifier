@@ -4,19 +4,23 @@ CC = gcc
 TESTONERECOBJS1= testonerecord.o bdac.o classify.o rythmchk.o noisechk.o match.o postclas.o analbeat.o qrsfilt.o qrsdet.o
 TESTONERECOBJS2= testonerecord.o bdac.o newclassify.o rythmchk.o noisechk.o newmatch.o postclas.o newanalbeat.o qrsfilt.o qrsdet.o
 
+CLASSONERECOBJS1= classifyonerecord.o justclassify.o classify.o rythmchk.o noisechk.o match.o postclas.o analbeat.o
 
-CLASSONERECOBJS= classifyonerecord.o justclassify.o newclassify.o rythmchk.o noisechk.o newmatch.o postclas.o newanalbeat.o
+CLASSONERECOBJS2= classifyonerecord.o justclassify.o newclassify.o rythmchk.o noisechk.o newmatch.o postclas.o newanalbeat.o
 
-all: testonerecord1 testonerecord2 classifyonerecord
+all: testonerecordosea testonerecordNewosea classifyonerecordosea classifyonerecordNewosea
 
-testonerecord1 : $(TESTONERECOBJS1)
+testonerecordosea : $(TESTONERECOBJS1)
 	gcc  $(TESTONERECOBJS1) -o testonerecord1 -lwfdb -lm
 
-testonerecord2 : $(TESTONERECOBJS2)
+testonerecordNewosea : $(TESTONERECOBJS2)
 	gcc  $(TESTONERECOBJS2) -o testonerecord2 -lwfdb -lm
 
-classifyonerecord: $(CLASSONERECOBJS)
-	gcc $(CLASSONERECOBJS) -o classifyonerecord -lwfdb -lm
+classifyonerecordosea: $(CLASSONERECOBJS1)
+	gcc $(CLASSONERECOBJS1) -o classifyonerecordosea -lwfdb -lm
+
+classifyonerecordNewosea: $(CLASSONERECOBJS2)
+	gcc $(CLASSONERECOBJS2) -o classifyonerecordNewosea -lwfdb -lm
 
 bdac.o: bdac.c bdac.h qrsdet.h
 	$(CC) -c bdac.c
