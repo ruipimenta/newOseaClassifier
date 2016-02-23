@@ -8,7 +8,7 @@ There are 2 executable files for classifying ECG channels on Physionet WFDB reco
 - testonerecord2 : uses the the original OSEA  beat detection code but uses our changes to the beat classification algorithm  
 * classifyonerecord : classifies beats given the QRS detections. It implements our changes to the original OSEA classification algorithm  
 
-###classifyonerecord###  
+###classifyonerecord  
 The executable file, classifyonerecord, should be called (in the command line) with 4 arguments:  
 
 1. the name of a Physionet WFDB record
@@ -26,9 +26,10 @@ Example of use:
 4. read file 106.myannot containing the beat classifications  
 *rdann -r 106 -a myannot*
 
-###testonerecord1 and testonerecord2###  
+###testonerecord1 and testonerecord2  
 The executable file should be called (in the command line) with 2 arguments:  
 
 1. the name of a Physionet WFDB record  
-2. the number of the channel to be analysed (first channel is number 0)  
-The WFDB output file gets the extension atest_0 if the channel to be analysed is 0
+2. the number of the channel to be analysed (first channel is number 0)
+  
+The WFDB output file gets the extension atest_0 if the channel to be analysed is 0, atest_1 if the channel to be analysed is 1, ...
